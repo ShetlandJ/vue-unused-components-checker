@@ -5,7 +5,7 @@ import path from 'path';
 import glob from 'glob';
 
 export function getCheckExpression(file): string {
-  return `(import|require).*(?:[\'\"]\\b|\\/)${path.basename(file, path.extname(file))}(?:\\.(?:vue))?[\'\"][\\\);,]?[,;]?`;
+  return `(import|require)\\s*\\(?[\\s\\S]*?(?:[\'\"]\\b|\\/)${path.basename(file, path.extname(file))}(?:\\.(?:vue))?[\'\"][\\);,]?[,;]?`;
 }
 
 export default function (src, maxOpenFiles, ignore): void {
